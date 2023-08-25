@@ -1,8 +1,8 @@
 [[ define "service_provider" -]]
-[[- if eq .unifi_controller.service_provider "consul" -]]
+[[- if eq .vaultwarden.service_provider "consul" -]]
       service {
         provider = "consul"
-        name     = "unifi-controller"
+        name     = "vaultwarden"
         port     = "http"
 
         check {
@@ -17,10 +17,10 @@
           }
         }
       }
-[[- else if eq .unifi_controller.service_provider "nomad" -]]
+[[- else if eq .vaultwarden.service_provider "nomad" -]]
       service {
         provider = "nomad"
-        name     = "unifi-controller"
+        name     = "vaultwarden"
         port     = "http"
 
         check {
@@ -41,10 +41,10 @@
 // allow nomad-pack to set the job name
 
 [[ define "job_name" ]]
-[[- if eq .unifi_controller.job_name "" -]]
+[[- if eq .vaultwarden.job_name "" -]]
 [[- .nomad_pack.pack.name | quote -]]
 [[- else -]]
-[[- .unifi_controller.job_name | quote -]]
+[[- .vaultwarden.job_name | quote -]]
 [[- end ]]
 [[- end ]]
 

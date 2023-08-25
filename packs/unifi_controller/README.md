@@ -19,11 +19,14 @@ This pack allows you to choose between either using the built in native service 
 
 <!-- Include information on the variables from your pack -->
 
-- `job_name` (string: unifi_controller) - The name to use as the job name which overrides using
-  the pack name
-- `datacenters` (list of strings: ["dc1"]) - A list of datacenters in the region which
-  are eligible for task placement
+- `job_name` (string: unifi_controller) - The name to use as the job name. Defaults to pack name.
+- `datacenters` (list of strings: ["dc1"]) - A list of datacenters in the region which are eligible for task placement
 - `region` (string: global) - The region where jobs will be deployed
 - `node_pool` (string: default) - Specify a node pool if needed
-- `service_provider` (string: nomad) - Valid options are either 'nomad' or 'consul'
+- `namespace` (string: default) - Specifiy a namespace. ACL's most likely will be needed if using a namespace
+- `service_provider` (string: nomad) - Service discovery provider. Valid options are either 'nomad' or 'consul'
+- `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data
+- `PUID` (number: 1000) - PUID to use for container
+- `PGID` (number: 1000) - PGID to use for container
+- `TZ` (string: America/New_York) - Timezone 
 

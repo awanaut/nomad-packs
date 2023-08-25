@@ -1,6 +1,7 @@
-job [[ .unifi_controller.job_name ]] {
-  region = "[[ .unifi_controller.region ]]"
-  datacenters = [[ .unifi_controller.datacenters  | toStringList ]]
+job [[ template "job_name" . ]] {
+  region = [[ .unifi_controller.region | quote ]]
+  datacenters = [[ .unifi_controller.datacenters | toStringList ]]
+  namespace = [[ .unifi_controller.namespace | quote ]]
   type = "service"
 
   reschedule {
@@ -44,21 +45,30 @@ job [[ .unifi_controller.job_name ]] {
       driver = "docker"
 
       config {
-        image = "jacobalberty/unifi:v7"
+        image = "jacobalberty/unifi:v[[ .unifi_controller.version ]]"
         ports = ["http", "stun", "discovery", "comms"]
         init = true
+        [[ if regexMatch "^\\/.*" .unifi_controller.volume]]
         mount {
-          type     = "volume"
-          source   = "unifi_controller"
+          type     = "bind"
+          source   = [[ .unifi_controller.volume | quote ]]
           target   = "/unifi"
           readonly = false
         }
+        [[ else ]]
+        mount {
+          type     = "volume"
+          source   = [[ .unifi_controller.volume | quote ]]
+          target   = "/unifi"
+          readonly = false
+        }
+      [[ end ]]
       }
 
       env {
-        PUID = 1000
-        PGID = 1000
-        TZ   = "America/New_York"
+        PUID = [[ .unifi_controller.PUID ]]
+        PGID = [[ .unifi_controller.PGID ]]
+        TZ   = [[ .unifi_controller.TZ | quote ]]
         UNIFI_STDOUT = true
       }
     [[ template "service_provider" . ]]
