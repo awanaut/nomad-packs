@@ -1,4 +1,4 @@
-job [[ template "job_name" . ]] {
+job [[ .unifi_controller.job_name ]] {
   region = [[ .unifi_controller.region | quote ]]
   datacenters = [[ .unifi_controller.datacenters | toStringList ]]
   namespace = [[ .unifi_controller.namespace | quote ]]

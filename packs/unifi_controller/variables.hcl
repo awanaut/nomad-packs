@@ -1,6 +1,7 @@
 variable "job_name" {
   description = "The name to use as the job name which overrides using the pack name"
   type        = string
+  default = "unifi_controller"
 }
 
 variable "node_pool" {
@@ -41,6 +42,7 @@ variable "volume" {
 variable "namespace" {
   description = "Specify a custom namespace"
   type = string
+  default = ""
 }
 
 variable "PUID" {
