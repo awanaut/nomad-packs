@@ -1,8 +1,8 @@
-# unifi_controller
+# Vault Warden
 
 <!-- Include a brief description of your pack -->
 
-This Nomad Pack will install a single instance of the Vault Warden docker image. Visit (VaultWarden project page)[https://github.com/dani-garcia/vaultwarden] for more information. This pack does not include an exhaustive list of all environment variables that are available.
+This Nomad Pack will install a single instance of the Vault Warden docker image. Visit (VaultWarden project page)[https://github.com/dani-garcia/vaultwarden] for more information. This pack does not include an exhaustive list of all environment variables that are available. Submit and issue if you'd like to see one added.
 
 ## Pack Usage
 
