@@ -26,7 +26,7 @@ This pack allows you to choose between either using the built in native service 
 - `node_pool` (string: default) - Specify a node pool if needed
 - `namespace` (string: default) - Specifiy a namespace. ACL's most likely will be needed if using a namespace
 - `service_provider` (string: nomad) - Valid options are either 'nomad' or 'consul'
-- `version` (string: default) - Specify docker tag. Visit project page for exact tags
+- `version` (string: latest) - Specify docker tag. Visit project page for exact tags
 - `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data
 - `port` (number) - Define a custom port to be exposed, if blank will be dynamically allocated
 - `websocket_enabled` (bool: true) - Enables websocket notifications
