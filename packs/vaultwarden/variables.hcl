@@ -121,3 +121,8 @@ variable "smtp_password" {
   type = string
   default = ""
 }
+
+variable "port" {
+  description = "Define a custom port to be exposed, if blank will be dynamically allocated"
+  type = number
+}

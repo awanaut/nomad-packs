@@ -28,6 +28,7 @@ This pack allows you to choose between either using the built in native service 
 - `service_provider` (string: nomad) - Valid options are either 'nomad' or 'consul'
 - `version` (string: default) - Specify docker tag. Visit project page for exact tags
 - `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data
+- `port` (number) - Define a custom port to be exposed, if blank will be dynamically allocated
 - `websocket_enabled` (bool: true) - Enables websocket notifications
 - `domain` (string) - External FQDN
 - `admin_token` (string) - Token for the admin interface, preferably an Argon2 PCH string. Vaultwarden has a built-in generator by calling `vaultwarden hash`. For details see: https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page#secure-the-admin_token. If not set, the admin panel is disabled. **Note** Unlike docker-compose, escape characters are not needed for this Pack.

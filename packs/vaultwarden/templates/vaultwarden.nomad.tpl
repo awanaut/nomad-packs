@@ -18,10 +18,16 @@ job [[ .vaultwarden.job_name | quote ]] {
     count = 1
 
     network {
-      port "http" {
-        static = 80
-        to     = 80
-      }
+      [[ if empty .vaultwarden.port ]]
+        port "http" {
+          to     = 80
+        }
+        [[ else ]]
+        port "http" {
+          to = 80
+          static = [[ .vaultwarden.port ]]
+        }
+        [[ end ]]
     }
     restart {
       attempts = 2
