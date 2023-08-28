@@ -2,7 +2,7 @@
 
 <!-- Include a brief description of your pack -->
 
-This Nomad Pack will install a single instance of the Vault Warden docker image. Visit (VaultWarden project page)[https://github.com/dani-garcia/vaultwarden] for more information. This pack does not include an exhaustive list of all environment variables that are available. Submit and issue if you'd like to see one added.
+This Nomad Pack will install a single instance of the Vault Warden docker image. Visit [VaultWarden project page](https://github.com/dani-garcia/vaultwarden ) for more information. This pack does not include an exhaustive list of all environment variables that are available. Submit and issue if you'd like to see one added.
 
 ## Pack Usage
 
@@ -13,7 +13,7 @@ Currently, this pack only supports volumes so ensure you pin the controller to t
 
 ## Nomad or Consul Service Discovery
 
-This pack allows you to choose between either using the built in native service discovery (default) or using consul. If using consul, ensure Consul has been installed and integrated with your Nomad cluster. See [https://developer.hashicorp.com/nomad/docs/configuration/consul] for more information.
+This pack allows you to choose between either using the built in native service discovery (default) or using consul. If using consul, ensure Consul has been installed and integrated with your Nomad cluster. See (https://developer.hashicorp.com/nomad/docs/configuration/consul) for more information.
 
 ## Variables
 
