@@ -24,10 +24,10 @@ This pack allows you to choose between either using the built in native service 
 - `datacenters` (list of strings: ["dc1"]) - A list of datacenters in the region which are eligible for task placement
 - `region` (string: global) - The region where jobs will be deployed
 - `node_pool` (string: default) - Specify a node pool if needed
-- `namespace` (string: default) - Specifiy a namespace. ACL's most likely will be needed if using a namespace
+- `namespace` (string: default) - Specifiy a namespace. ACL token most likely will be needed if using a namespace
 - `service_provider` (string: nomad) - Valid options are either 'nomad' or 'consul'
 - `version` (string: latest) - Specify docker tag. Visit project page for exact tags
-- `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data
+- `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data. **NOTE**: These are docker mounts NOT Nomad volumes. Ensure [Docker volume mounts are enabled](https://developer.hashicorp.com/nomad/docs/drivers/docker#volumes-1) in your Nomad configuration if using bind mounts.
 - `port` (number) - Define a custom port to be exposed, if blank will be dynamically allocated
 - `websocket_enabled` (bool: true) - Enables websocket notifications
 - `domain` (string) - External FQDN
