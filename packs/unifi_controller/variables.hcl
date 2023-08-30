@@ -27,6 +27,12 @@ variable "service_provider" {
   default = "nomad"
 }
 
+variable "engine" {
+  description = "Container engine to use. Docker or Podman"
+  type = string
+  default = "docker"
+}
+
 variable "version" {
   description = "Docker image version"
   type = string

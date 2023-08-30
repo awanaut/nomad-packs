@@ -42,7 +42,7 @@ job [[ .unifi_controller.job_name ]] {
     }
 
     task "server" {
-      driver = "docker"
+      [[ template "engine" .]]
 
       config {
         image = "jacobalberty/unifi:v[[ .unifi_controller.version ]]"

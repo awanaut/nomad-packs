@@ -1,3 +1,11 @@
+[[ define "engine" ]]
+[[- if eq .vaultwarden.engine "docker" -]]
+driver = "docker"
+[[- else if eq .vaultwarden.engine "podman" -]]
+driver = "podman"
+[[- end -]]
+[[ end ]]
+
 [[ define "service_provider" -]]
 [[- if eq .vaultwarden.service_provider "consul" -]]
       service {

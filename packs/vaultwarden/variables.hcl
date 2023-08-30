@@ -38,6 +38,12 @@ variable "version" {
   default = "latest"
 }
 
+variable "engine" {
+  description = "Container engine to use. Docker or Podman"
+  type = string
+  default = "docker"
+}
+
 variable "volume" {
   description = "Specify either a volume name or a bind mount path."
   type = string

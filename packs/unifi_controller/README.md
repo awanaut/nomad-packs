@@ -25,6 +25,7 @@ This pack allows you to choose between either using the built in native service 
 - `node_pool` (string: default) - Specify a node pool if needed
 - `namespace` (string: default) - Specifiy a namespace. ACL token most likely will be needed if using a namespace
 - `service_provider` (string: nomad) - Service discovery provider. Valid options are either 'nomad' or 'consul'
+- `engine` (string: docker) - Container engine to use. Docker or Podman
 - `volume` (string: data_volume) - Specify either a name which will create a volume mount or a bind path (ie. /path/nomad/apps) which will use a bind mount path to store configuration data. **NOTE**: These are docker mounts NOT Nomad volumes. Ensure [Docker volume mounts are enabled](https://developer.hashicorp.com/nomad/docs/drivers/docker#volumes-1) in your Nomad configuration if using bind mounts.
 - `PUID` (number: 1000) - PUID to use for container
 - `PGID` (number: 1000) - PGID to use for container

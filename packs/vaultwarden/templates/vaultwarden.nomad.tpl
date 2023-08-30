@@ -37,7 +37,7 @@ job [[ .vaultwarden.job_name | quote ]] {
     }
 
     task "server" {
-      driver = "docker"
+      [[ template "engine" .]]
 
       config {
         image = "vaultwarden/server:[[ .vaultwarden.version ]]"

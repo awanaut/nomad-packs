@@ -1,3 +1,11 @@
+[[ define "engine" ]]
+[[- if eq .unifi_controller.engine "docker" -]]
+driver = "docker"
+[[- else if eq .unifi_controller.engine "podman" -]]
+driver = "podman"
+[[- end -]]
+[[ end ]]
+
 [[ define "service_provider" -]]
 [[- if eq .unifi_controller.service_provider "consul" -]]
       service {
