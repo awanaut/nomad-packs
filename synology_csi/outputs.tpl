@@ -1,1 +1,1 @@
-Congrats! You deployed the unifi_controller pack on Nomad.
+Congrats! You deployed the [[ vars "job_name" ]] pack on Nomad.

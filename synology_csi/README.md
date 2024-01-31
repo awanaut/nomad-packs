@@ -11,10 +11,7 @@
   * [Usage](#usage)
     * [Application](#application)
     * [Nomad](#nomad)
-    * [Outputs](#outputs)
-  * [Notes](#notes)
-    * [Resource Sizing](#resource-sizing)
-  * [Author Information](#author-information)
+  * [Troubleshooting](#troubleshooting)
   * [License](#license)
 <!-- TOC -->
 
@@ -28,14 +25,17 @@
 
 ## Usage
 
-The `boundary_worker` Pack can be run with a local fileset (commonly used when developing the Pack), or via the [@workloads Nomad Pack Registry](https://github.com/workloads/nomad-pack-registry).
+This pack will deploy the CSI driver as a `system` job across all datacenters and node pools. Feel free to change these variables to match your environment.
+
+The `synology_csi` Pack can be run with a local fileset (commonly used when developing the Pack), or via the [@workloads Nomad Pack Registry](https://github.com/workloads/nomad-pack-registry). <-- change to personal repo or synology
 
 A Pack available _locally_ may be run like so:
 
 ```shell
-nomad-pack run ./packs/boundary_worker
+nomad-pack run ./synology_csi
 ```
 
+#CHANGE TO PERSONAL OR SYNOLOGY REPO
 A Pack available via the [@workloads Nomad Pack Registry](https://github.com/workloads/nomad-pack-registry) may be run like so:
 
 ```shell
@@ -50,7 +50,7 @@ nomad-pack run boundary_worker --registry=workloads
 
 ### Application
 
-This section describes Application-specific configuration.
+This section describes Synology-specific configuration.
 
 | Name                                     | Description                                                                                                                            | Default |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -77,14 +77,6 @@ This section describes Nomad-specific configuration.
 | nomad_task_resources              | Resource Limits for the Task.                      | `{"cores":null,"cpu":500,"memory":512,"memory_max":1024}` |
 | node_pool                       |  Node Pool for the Job |  `"all"` |
 
-
-### Outputs
-
-For outputs, see [./outputs.tpl](./outputs.tpl).
-
-> **Note**
->
-> The outputs are only rendered if `nomad_pack_verbose_output` is set to `true`.
 
 ## Troubleshooting
 
