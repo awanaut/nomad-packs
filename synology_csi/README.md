@@ -5,11 +5,10 @@
 ## Table of Contents
 
 <!-- TOC -->
-* [Nomad Pack: (HCP) Boundary Worker](#nomad-pack-hcp-boundary-worker)
   * [Table of Contents](#table-of-contents)
   * [Requirements](#requirements)
   * [Usage](#usage)
-    * [Application](#application)
+    * [Synology](#synology)
     * [Nomad](#nomad)
   * [Troubleshooting](#troubleshooting)
   * [License](#license)
@@ -35,7 +34,7 @@ A Pack available _locally_ may be run like so:
 nomad-pack run ./synology_csi
 ```
 
-#CHANGE TO PERSONAL OR SYNOLOGY REPO
+<!---CHANGE TO PERSONAL OR SYNOLOGY REPO --->
 A Pack available via the [@workloads Nomad Pack Registry](https://github.com/workloads/nomad-pack-registry) may be run like so:
 
 ```shell
@@ -48,7 +47,7 @@ nomad-pack run boundary_worker --registry=workloads
 
 <!-- BEGIN_PACK_DOCS -->
 
-### Application
+### Synology
 
 This section describes Synology-specific configuration.
 
