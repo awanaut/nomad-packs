@@ -1,4 +1,4 @@
 nomadvars.hcl
-packs/hello_world/
-packs/vaultwarden/
-packs/unifi_controller/
+hello_world
+vaultwarden
+unifi_controller
