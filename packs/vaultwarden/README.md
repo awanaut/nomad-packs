@@ -24,6 +24,10 @@ This Nomad Pack will install a single instance of the Vaultwarden container imag
 
 ## Pack Usage
 
+### Bind Mounts Prereqs
+
+Ensure you have a `.../backups/logs` directory created within your Vaultwarden bind mount path.
+
 ### Secrets Prereqs
 
 ```openssl rand -base64 48``` to generate a auth token for the admin page

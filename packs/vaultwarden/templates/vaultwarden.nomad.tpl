@@ -120,19 +120,19 @@ job "[[ var "job_name" . ]]" {
         [[ if var "volume" . | regexMatch "^/.*$" ]]
         mount {
           type     = "bind"
-          source   = "/volume1/nvme/nomad/vaultwarden"
+          source   = "[[ var "volume" .]]"
           target   = "/data"
           readonly = false
         }
         mount {
           type     = "bind"
-          source   = "/volume1/nvme/nomad/vaultwarden/backups"
+          source   = "[[ var "volume" .]]/backups"
           target   = "/backups"
           readonly = false
         }
         mount {
           type     = "bind"
-          source   = "/volume1/nvme/nomad/vaultwarden/backups/logs"
+          source   = "[[ var "volume" .]]/backups/logs"
           target   = "/logs"
           readonly = false
         }
