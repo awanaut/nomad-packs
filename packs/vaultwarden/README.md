@@ -10,33 +10,50 @@ This Nomad Pack will install a single instance of the Vaultwarden container imag
   * [Table of Contents](#table-of-contents)
   * [Requirements](#requirements)
   * [Usage](#usage)
+    * [Secrets Prequisites](#secrets-prereqs)
     * [Vaultwarden](#vaultwarden)
     * [Nomad](#nomad)
+  * [Variables](#variables)
 <!-- TOC -->
 
 ## Requirements
 
 - HashiCorp Nomad `1.7.x` or [newer](https://developer.hashicorp.com/nomad/install)
 - HashiCorp Nomad Pack `0.1.0` or [newer](https://releases.hashicorp.com/nomad-pack/)
+- Two secrets stored within Nomad. See [usage](#usage) below.
 
 ## Pack Usage
+
+### Secrets Prereqs
+
+```openssl rand -base64 48``` to generate a auth token for the admin page
+
+```openssl rand -base64 48``` to generate a encryption password for encrypting backups
+
+```nomad var put nomad/jobs/vaultwarden admin_token=<paste generated key here> encryption_pw=<paste 2nd generated key here>```
+
+**NOTE**: Change nomad/jobs/**vaultwarden** to the name of the job if you chose a custom job name.
+
 
 ### Locally 
 
 ```shell
 git clone https://github.com/awanaut/nomad-packs.git 
 cd nomad-packs
-nomad-pack run ./vaultwarden
+```
+Edit nomadvars.hcl to your liking.
+
+```shell
+nomad-pack run ./vaultwarden -f ./nomadvars.hcl
 ```
 
 ### From Repo
 
+If needed, create nomadvars.hcl and set variables to your liking. Refer to [Variables](#variables) section.
 ```shell
 nomad-pack registry add awanaut github.com/awanaut/nomad-packs
-nomad-pack run vaultwarden --registry=awanaut
+nomad-pack run vaultwarden -f ./nomadvars.hcl --registry=awanaut 
 ```
-### Custom Variables
-==TO DO==
  
 ### Notes
 - All defaults should be sufficient for home or small office use. If your Nomad installation has been customzied you'll need to change a few variables to ensure it is scheduled properly. 
@@ -69,4 +86,6 @@ nomad-pack run vaultwarden --registry=awanaut
 | `smtp_port` | Ports 587 (submission) and 25 (smtp) are standard without encryption and with encryption via STARTTLS (Explicit TLS). Port 465 (submissions) is used for encrypted submission (Implicit TLS). | 587 |
 | `smtp_username` | SMTP username| |
 | `smtp_password` | SMTP password| |
+| `nomad_task_resources` | CPU and Memory to allocate to Vaultwarden | CPU 500, Mem 512 |
+| `service_tags` | Tags to assign to the Vaultwarden service. Useful for something like Traefik. | None |
 

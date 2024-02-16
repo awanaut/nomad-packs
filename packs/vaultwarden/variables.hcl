@@ -44,12 +44,6 @@ variable "version" {
   default = "latest"
 }
 
-variable "engine" {
-  description = "Container engine to use. Docker or Podman"
-  type = string
-  default = "docker"
-}
-
 variable "volume" {
   description = "Specify either a volume name or a bind mount path."
   type = string
@@ -69,9 +63,8 @@ variable "domain" {
 }
 
 variable "admin_token" {
-  description = "Token for the admin interface, preferably an Argon2 PCH string"
+  description = "Token for the admin interface"
   type = string
-  default = ""
 }
 
 variable "sends_allowed" {
@@ -168,4 +161,9 @@ variable "nomad_task_resources" {
     # see https://developer.hashicorp.com/nomad/docs/job-specification/resources#memory-oversubscription
     memory_max = 1024
   }
+}
+
+variable "service_tags" {
+  type = list(string)
+  description = "List of service tags"
 }
