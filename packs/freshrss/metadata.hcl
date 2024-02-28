@@ -1,9 +1,9 @@
 app {
-  url = "https://github.com/wg-easy/wg-easy"
+  url = "https://github.com/FreshRSS/FreshRSS"
 }
 pack {
-  name        = "wireguard"
-  description = "You have found the easiest way to install & manage WireGuard on any Linux host!"
+  name        = "freshrss"
+  description = "FreshRSS is a self-hosted RSS feed aggregator."
   version     = "0.1"
 }
 

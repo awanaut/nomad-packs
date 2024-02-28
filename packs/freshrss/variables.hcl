@@ -38,16 +38,12 @@ variable "runtime" {
   default = "docker"
 }
 
-variable "udp-port" {
+variable "port" {
   description = "Define a custom port to be exposed. Remove default if you want to use a random port."
   type = number
-  default = 51820
+  default = 80
 }
-variable "gui-port" {
-  description = "Define a custom port to be exposed. Remove default if you want to use a random port."
-  type = number
-  default = 51821
-}
+
 variable "volume" {
   description = "Specify either a volume name or a bind mount path."
   type = string
@@ -76,7 +72,10 @@ variable "nomad_task_resources" {
     memory_max = 1024
   }
 }
-
+variable "pinned_host" {
+  type = string
+  description = "Pinned Host"
+}
 variable "service_tags" {
   type = list(string)
   description = "List of service tags"
@@ -88,26 +87,47 @@ variable "timezone" {
   default = "America/New_York"
 }
 
-variable "wg_host" {
+variable "cron_min" {
   type = string
-  description = "The public hostname of your VPN server."
-  default = "vpn.myserver.com"
+  description = "Define minutes for the built-in cron job to automatically refresh feeds (see github repo for more advanced options)"
 }
 
-variable "dns" {
+variable "data_path" {
   type = string
-  description = "The DNS server to use for the VPN."
-  default = "1.1.1.1"
+  description = "Define the path to the data directory"
+  default = " (default is empty, defined by ./constants.local.php or ./constants.php) Defines the path for writeable data"
 }
 
-variable "language" {
+variable "freshrss_env" {
   type = string
-  description = "Language"
-  default = "en"
+  description = "(default is production) Enables additional development information if set to development (increases the level of logging and ensures that errors are displayed) (see github repo for more development options)"
+  default = "production"
 }
 
-variable "pinned_host" {
+variable "syslog" {
   type = string
-  description = "Pinned Host"
-  default = "vm1"
+  description = "(default is On) Copy all the logs to syslog"
+  default = "on"
+}
+
+variable "stderr" {
+  type = string
+  description = "(default is On) Copy all the logs to stderr"
+  default = "on"
+}
+
+variable "listen" {
+  type = number
+  description = "Modifies the internal Apache port"
+  default = 80
+}
+
+variable "freshrss_install" {
+  type = string
+  description = "automatically pass arguments to command line cli/do-install.php (for advanced users; see example in Docker Compose section on github repo). Only executed at the very first run (so far), so if you make any change, you need to delete your freshrss service, freshrss_data volume, before running again."
+}
+
+variable "freshrss_user" {
+  type = string
+  description = "automatically pass arguments to command line cli/create-user.php (for advanced users; see example in Docker Compose section on github repo). Only executed at the very first run (so far), so if you make any change, you need to delete your freshrss service, freshrss_data volume, before running again."
 }

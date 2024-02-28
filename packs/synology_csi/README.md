@@ -86,10 +86,3 @@ Run the following from shell: `sudo mount --make-shared /volume1/` (Change your 
 You may need to create a scheduled task on start up to run this command since this does not persist through reboots.
 
 
-## License
-
-Licensed under the Apache License, Version 2.0 (the "License").
-
-You may download a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
-See the License for the specific language governing permissions and limitations under the License.

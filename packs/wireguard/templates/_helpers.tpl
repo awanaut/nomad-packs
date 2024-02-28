@@ -4,7 +4,7 @@
         [[- end ]]
 [[- end ]]
 
-[[ define "pinned_hosts" ]]
+[[- define "pinned_hosts" -]]
 [[ if var "pinned_host" . | regexMatch "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$" ]]
 constraint {
   attribute = "${attr.unique.network.ip-address}"
@@ -16,7 +16,7 @@ constraint {
   value = [[ var "pinned_host" . | quote ]]
 }
 [[ end ]]
-[[ end ]]
+[[- end -]]
 
 [[ define "service_tags" ]]
 [[ if var "service_tags" . ]]
