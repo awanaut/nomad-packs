@@ -1,1 +1,1 @@
-Congrats! You deployed the wireguard pack on Nomad.
+Congrats! You deployed the [[ var "job_name" . ]] pack on Nomad.

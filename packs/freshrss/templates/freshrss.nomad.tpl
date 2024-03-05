@@ -20,7 +20,7 @@ job "[[ var "job_name" . ]]" {
       unlimited      = false
   }
 
-  group "wireguard" {
+  group "freshrss" {
     count = 1
 
     [[ template "port" .]]
@@ -32,7 +32,7 @@ job "[[ var "job_name" . ]]" {
       mode = "fail"
     }
 
-    task "wireguard" {
+    task "freshrss" {
       driver = "[[ var "runtime" . ]]"
 
       resources {
@@ -81,7 +81,7 @@ job "[[ var "job_name" . ]]" {
       }
       service {
         name     = "[[ var "job_name" . ]]"
-        port     = "gui"
+        port     = "http"
         provider = "nomad"
         [[ template "service_tags" . ]]
         check {

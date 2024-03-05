@@ -95,7 +95,6 @@ variable "cron_min" {
 variable "data_path" {
   type = string
   description = "Define the path to the data directory"
-  default = " (default is empty, defined by ./constants.local.php or ./constants.php) Defines the path for writeable data"
 }
 
 variable "freshrss_env" {

@@ -20,6 +20,7 @@ tags = [[ var "service_tags" . | toStringList ]]
 [[ end ]]
 
 [[- define "pinned_hosts" -]]
+[[- if var "pinned_host" . ]]
 [[ if var "pinned_host" . | regexMatch "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$" ]]
 constraint {
   attribute = "${attr.unique.network.ip-address}"
@@ -30,6 +31,6 @@ constraint {
   attribute = "${node.unique.name}"
   value = [[ var "pinned_host" . | quote ]]
 }
-[[ else ]]
 [[ end ]]
+[[- end ]]
 [[- end -]]
